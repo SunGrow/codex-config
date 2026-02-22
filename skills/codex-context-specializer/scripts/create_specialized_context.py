@@ -90,6 +90,13 @@ Outside this scope, do not apply these routing rules unless explicitly requested
 3. Partition write-heavy subtasks by non-overlapping file ownership.
 4. Complete one integration and validation pass before final output.
 
+## Decision And Permission Handoff
+
+- Leaf workers must not ask users directly for decisions or tool permissions.
+- Leaf workers emit `DECISION_REQUIRED` or `PERMISSION_REQUIRED` to caller.
+- Caller owns user interaction and privileged execution, then returns `DECISION_RESULT` or `PERMISSION_RESULT`.
+- Keep handoffs machine-readable with stable `id` values and explicit options/status.
+
 ## Skill Routing
 
 {route_block}

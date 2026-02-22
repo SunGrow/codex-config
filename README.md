@@ -47,6 +47,7 @@ cp config.template.toml config.toml
 6. For Unreal work, keep UE-specific guidance in `UE-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
 7. For Codex-config work, keep config-specific guidance in `CODEX-CONFIG-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
 8. Default to hierarchical dispatch for specialized/noisy tasks to protect parent context budget.
+9. Use caller-mediated handoffs: `DECISION_REQUIRED`/`DECISION_RESULT` for choices, `PERMISSION_REQUIRED`/`PERMISSION_RESULT` for privileged tools.
 
 ## Standard Skills Layout
 

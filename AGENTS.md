@@ -33,6 +33,53 @@
 3. For write-heavy subtasks, partition ownership by file/path and run in parallel only when ownership does not overlap.
 4. Merge child outputs into one decision/patch plan before finalizing.
 
+## User Decision Handoff
+
+- Sub-agents (including sub-sub agents) must not ask the user directly for yes/no decisions.
+- Leaf agents must escalate unresolved user decisions to their caller in a structured handoff.
+- Caller/orchestrator owns all user interaction and sends resolved decisions back down.
+- If a decision is blocking, caller should respond to the child with a concrete result before continuing execution.
+
+Use this handoff format:
+
+`DECISION_REQUIRED`
+- `id`: stable identifier
+- `question`: exact yes/no or multi-choice question
+- `options`: explicit options
+- `recommended`: preferred option with rationale
+
+Caller response format:
+
+`DECISION_RESULT`
+- `id`: same identifier
+- `answer`: selected option
+- `constraints`: any extra limits or notes
+
+## Tool Permission Handoff
+
+- Leaf agents must not request user tool approvals directly.
+- Leaf agents must not send privileged tool calls with escalation flags on their own.
+- Leaf agents must escalate permission needs to caller using `PERMISSION_REQUIRED`.
+- Caller owns approval prompts and privileged execution, then returns `PERMISSION_RESULT`.
+- Nested agents may run without a user approval channel even when caller can prompt. Design for caller-mediated approvals by default.
+- If runtime policy disallows approvals (for example approval mode is non-interactive), caller must return a denied result and require a non-privileged fallback path.
+
+Use this handoff format:
+
+`PERMISSION_REQUIRED`
+- `id`: stable identifier
+- `command`: exact command that requires privileged execution
+- `justification`: one yes/no approval question for the user
+- `expected_effect`: concrete output or side effect
+
+Caller response format:
+
+`PERMISSION_RESULT`
+- `id`: same identifier
+- `approved`: `yes` or `no`
+- `status`: `executed`, `denied`, or `unavailable`
+- `notes`: outputs, constraints, or required fallback
+
 ## Unreal Engine Projects
 
 - Read `~/.codex/UE-INSTRUCTIONS.md` before UE work.

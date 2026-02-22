@@ -26,6 +26,16 @@ References below were verified on 2026-02-22.
 - Repository AGENTS.md: https://raw.githubusercontent.com/openai/codex/main/AGENTS.md
 - Configuration schema (source of keys/defaults): https://raw.githubusercontent.com/openai/codex/main/codex-rs/core/config.schema.json
 - Config docs bridge in repo (now points to docs site): https://raw.githubusercontent.com/openai/codex/main/docs/config.md
+- Orchestrator base prompt template: https://github.com/openai/codex/blob/main/codex-rs/core/templates/agents/orchestrator.md
+- Default collaboration mode template: https://github.com/openai/codex/blob/main/codex-rs/core/templates/collaboration_mode/default.md
+- Plan collaboration mode template: https://github.com/openai/codex/blob/main/codex-rs/core/templates/collaboration_mode/plan.md
+
+## Decision handoff provenance
+
+- Multi-agent orchestration model: https://developers.openai.com/codex/concepts/multi-agents
+- AGENTS.md routing and instruction boundaries: https://developers.openai.com/codex/guides/agents-md
+- Skill metadata and implicit invocation policy: https://developers.openai.com/codex/skills
+- Practical handoff behavior is synthesized from the official multi-agent/skills docs plus upstream prompt templates; there is no single page titled "decision handoff".
 
 ## Local docs included in this repository
 

@@ -14,6 +14,13 @@ Use this checklist after adding or editing a `*-INSTRUCTIONS.md` context.
 - Parent/orchestrator context is kept minimal.
 - Fallback conditions for direct execution are explicit.
 
+## Decision And Permission Handoff
+
+- Decision handoff is explicit (`DECISION_REQUIRED` and `DECISION_RESULT`).
+- Permission handoff is explicit (`PERMISSION_REQUIRED` and `PERMISSION_RESULT`).
+- Caller-owned approval prompting is explicit; leaf workers do not prompt users directly.
+- Fallback path is defined when approval is denied or unavailable.
+
 ## Parallelization
 
 - Parallelization policy is explicit for independent subtasks.

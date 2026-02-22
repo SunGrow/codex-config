@@ -33,6 +33,21 @@ Outside this scope, do not apply Codex-config skills unless the user explicitly 
 3. Serialize shared-file edits (`AGENTS.md`, root docs, shared scripts) to avoid conflicts.
 4. Finish with one consolidated validation pass and one final summary.
 
+## Decision Handoff
+
+- Codex-config leaf workers should not ask the user directly for yes/no decisions.
+- Leaf workers must escalate with `DECISION_REQUIRED` to their caller.
+- Caller owns user interaction, then returns `DECISION_RESULT` to continue execution.
+- Keep decisions explicit and machine-readable (`id`, `options`, `recommended`, `answer`).
+
+## Permission Handoff
+
+- Codex-config leaf workers must not request user tool permissions directly.
+- Leaf workers must escalate privileged command needs with `PERMISSION_REQUIRED`.
+- Caller owns approval prompts and privileged execution, then sends `PERMISSION_RESULT`.
+- Keep permission handoff explicit and machine-readable (`id`, `command`, `justification`, `expected_effect`, `approved`, `status`).
+- If approval is unavailable in the current runtime policy, return `PERMISSION_RESULT` with `status = unavailable` and switch to fallback flow.
+
 ## Skill Routing
 
 | Task | Preferred Skill |

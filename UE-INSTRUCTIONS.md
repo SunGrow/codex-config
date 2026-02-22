@@ -20,6 +20,21 @@ Outside UE scope, do not apply UE routing/skills unless the user explicitly requ
 3. Assign non-overlapping file ownership for parallel implementation tasks.
 4. Rejoin at integration points, then run one final review/build pass (`ue-code-reviewer`, `ue-build-fixer`).
 
+## UE Decision Handoff
+
+- UE leaf workers (`ue-logic-writer`, `ue-build-fixer`, etc.) should not ask the user directly for yes/no decisions.
+- Leaf workers must emit `DECISION_REQUIRED` to their caller when blocked on user intent.
+- Caller/orchestrator asks the user, then sends `DECISION_RESULT` back to the leaf worker.
+- When in Plan mode, caller should use the dedicated user-input flow; otherwise caller asks directly in normal chat.
+
+## UE Permission Handoff
+
+- UE leaf workers must not ask the user for tool permission prompts directly.
+- UE leaf workers must emit `PERMISSION_REQUIRED` when blocked on privileged tool execution.
+- Caller/orchestrator owns approval prompts and privileged command execution.
+- Caller returns `PERMISSION_RESULT` with `executed`, `denied`, or `unavailable`, then worker continues with normal or fallback path.
+- Assume nested workers may not have an approval channel. Always route permission requests through caller.
+
 ## UE5 Environment
 
 - UE engine path is project-specific. Check project docs (for example `AGENTS.md`, `MEMORY.md`) for the exact path.
@@ -60,9 +75,9 @@ Use an orchestrator mindset:
 ## Permission Failure Handling
 
 If required filesystem or command permissions are blocked:
-1. Stop the current workflow.
-2. Report which step/tool was blocked.
-3. Ask the user whether to escalate permissions or choose an alternative path.
+1. Emit `PERMISSION_REQUIRED` to caller with exact command and expected effect.
+2. Wait for `PERMISSION_RESULT`.
+3. If denied/unavailable, report blocked step and execute or propose the non-privileged fallback path.
 
 ## Critical Reminder
 

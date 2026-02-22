@@ -15,8 +15,9 @@ Use this skill to create and maintain specialized context documents for Codex-co
 2. Generate a context scaffold with `scripts/create_specialized_context.py`.
 3. Update `AGENTS.md` to reference the new context and define routing boundaries.
 4. Add or refine domain skill routing and delegation-first rules.
-5. Validate any touched skills and run skill audits.
-6. Return a concise change summary with file paths and commands.
+5. Add or refine decision/permission handoff policy (caller-owned user prompts and privileged execution).
+6. Validate any touched skills and run skill audits.
+7. Return a concise change summary with file paths and commands.
 
 ## Commands
 
@@ -43,6 +44,12 @@ python scripts/create_specialized_context.py --domain codex-config --output CODE
 - If a suitable skill exists for a subtask, dispatch it first.
 - Keep parent orchestration context minimal.
 - Execute directly only if no suitable skill exists or delegation is blocked.
+
+## Handoff Policy
+
+- Contexts must define both decision handoff (`DECISION_REQUIRED`/`DECISION_RESULT`) and permission handoff (`PERMISSION_REQUIRED`/`PERMISSION_RESULT`).
+- Permission requests from leaf workers must route through caller; leaf workers should not prompt user approvals directly.
+- If approval is unavailable in runtime policy, require explicit fallback behavior.
 
 ## Quality Checks
 
