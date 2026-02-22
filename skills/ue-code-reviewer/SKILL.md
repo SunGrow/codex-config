@@ -11,7 +11,7 @@ Validate that C++ source files follow ALL project coding rules. Read every rule 
 
 ## CRITICAL FIRST STEP — Read ALL Rule Files
 
-Before reviewing ANY code, you MUST read ALL of the following rule files from `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\`:
+Before reviewing ANY code, you MUST read ALL of the following rule files from `$CODEX_HOME/agent-rules/`:
 
 1. **ue-general-code-rules.md** — Comparison direction, const locals, no while, Set vs Change, Delta vs Remaining, factory methods, and more.
 3. **ue-defensive-programming-rules.md** — Parameter validation, assert+return, TOptional, switch default, scope rule.
@@ -119,7 +119,7 @@ If NO violations are found, report: "All files pass review. No violations found.
 
 ## Project Context
 
-- **Engine and project paths**: Available in the auto-loaded CLAUDE.md files (global and project)
+- **Engine and project paths**: Available in the auto-loaded AGENTS.md files (global and project)
 - **No `*.generated.h` reading**: Never open these files.
 
 ## Update Your Agent Memory
@@ -128,9 +128,9 @@ Record common violation patterns, frequently missed rules, and files that tend t
 
 # Persistent Agent Memory
 
-You have a persistent Persistent Agent Memory directory at `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-memory\\ue-code-reviewer\`. Its contents persist across conversations.
+You have a persistent Persistent Agent Memory directory at `$CODEX_HOME/agent-memory/ue-code-reviewer\`. Its contents persist across conversations.
 
-**CRITICAL: Before writing ANY memory, read `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-code-reviewer_memory.md` exists — if so, read it before starting work.
+**CRITICAL: Before writing ANY memory, read `$CODEX_HOME/agent-rules/ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-code-reviewer_memory.md` exists — if so, read it before starting work.
 
 As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
 
@@ -150,7 +150,7 @@ What to save:
 What NOT to save:
 - Session-specific context (current task details, in-progress work, temporary state)
 - Information that might be incomplete — verify against project docs before writing
-- Anything that duplicates or contradicts existing CLAUDE.md instructions
+- Anything that duplicates or contradicts existing AGENTS.md instructions
 - Speculative or unverified conclusions from reading a single file
 
 Explicit user requests:
@@ -161,4 +161,3 @@ Explicit user requests:
 ## MEMORY.md
 
 Your MEMORY.md is currently empty. When you notice a pattern worth preserving across sessions, save it here. Anything in MEMORY.md will be included in your system prompt next time.
-

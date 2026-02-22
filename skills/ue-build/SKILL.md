@@ -11,11 +11,11 @@ Build the current Unreal Engine project for Development Editor (Win64). All proj
 
 Follow these steps **in order**, stopping as soon as you have a complete build command.
 
-### Step 1 — Check CLAUDE.md
+### Step 1 — Check AGENTS.md
 
-Walk upward from cwd looking for a `CLAUDE.md` file. If found, search for a `## Build` heading (or similar) containing a fenced code block with `Build.bat`. If found:
+Walk upward from cwd looking for a `AGENTS.md` file. If found, search for a `## Build` heading (or similar) containing a fenced code block with `Build.bat`. If found:
 - Use that command **verbatim**.
-- Resolve any relative `.uproject` paths relative to the directory containing CLAUDE.md.
+- Resolve any relative `.uproject` paths relative to the directory containing AGENTS.md.
 - **Skip directly to Execution.**
 
 ### Step 2 — Find .uproject
@@ -42,11 +42,10 @@ Try these locations in order to find `Engine\Build\BatchFiles\Build.bat`:
 
 ## Execution
 
-1. **Show the full command to the user** and ask for confirmation before running (since it was dynamically constructed). If the command came verbatim from CLAUDE.md, run it directly without asking.
+1. **Show the full command to the user** and ask for confirmation before running (since it was dynamically constructed). If the command came verbatim from AGENTS.md, run it directly without asking.
 2. Run the command via Bash with a 10-minute timeout.
 
 ## Output
 
 - **Success:** State "Build succeeded" and note the warning count if any.
 - **Failure:** List only the error lines (not the full log). Group errors by file if there are multiple.
-

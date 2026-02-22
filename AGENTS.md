@@ -8,8 +8,9 @@
 
 ## Project Detection
 
-- Read `CLAUDE.md` first, then `.claude/CLAUDE.md`.
-- If neither exists, infer project type from repository markers (for example, `.uproject` for Unreal Engine).
+- Prefer project-local `AGENTS.md` guidance in the active repository scope.
+- If a project uses a non-standard instruction filename, configure `project_doc_fallback_filenames` locally in `config.toml`.
+- If no project instructions are present, infer project type from repository markers (for example, `.uproject` for Unreal Engine).
 
 ## Unreal Engine Projects
 

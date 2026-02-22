@@ -1,15 +1,12 @@
 # Shareable Codex configuration template.
-# Keep this file short and copy only keys you actually need.
-# Copy this file to config.toml and customize locally.
+# Copy this file to config.toml and keep machine-specific values local.
 
 model = "gpt-5.3-codex"
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "high"
 model_verbosity = "low"
 plan_mode_reasoning_effort = "high"
 web_search = "live"
 
-# Keep AGENTS.md primary, but allow CLAUDE.md fallback.
-project_doc_fallback_filenames = ["CLAUDE.md", ".claude/CLAUDE.md"]
 # Keep loaded project docs concise to avoid prompt bloat.
 project_doc_max_bytes = 32768
 
@@ -21,18 +18,15 @@ project_doc_max_bytes = 32768
 # Linux:
 # notify = ["sh", "-lc", "printf '\\a'"]
 
-# Optional compatibility shell hint.
-# [shell_environment_policy]
-# set = { CLAUDE_CODE_SHELL = "/absolute/path/to/your/shell" }
+# Codex reads AGENTS.md by default.
+# Optional fallback filenames for non-standard project docs:
+# project_doc_fallback_filenames = ["RULES.md"]
 
+# Stable feature flags.
 [features]
 shell_snapshot = true
 multi_agent = true
 apps = true
-child_agents_md = true
-
-[tools]
-web_search = true
 
 # Optional profile optimized for read-only research and analysis.
 [profiles.research]
@@ -48,11 +42,10 @@ web_search = "live"
 # [projects.'/home/user/project']
 # trust_level = "trusted"
 
-[notice.model_migrations]
-"gpt-5.2-codex" = "gpt-5.3-codex"
+# Optional platform-specific override.
+# [windows]
+# sandbox = "elevated"
 
-[windows]
-sandbox = "elevated"
-
-[agents]
-max_depth = 6
+# Optional multi-agent depth override.
+# [agents]
+# max_depth = 6

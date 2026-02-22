@@ -5,15 +5,15 @@ description: Scaffold a new UE5 C++ class following discovered project conventio
 
 # Scaffold UE5 C++ Class
 
-Create a new Unreal Engine 5 C++ class (header + implementation) by discovering all project conventions at runtime. Nothing is hardcoded — every convention is detected from CLAUDE.md, project files, or existing source code.
+Create a new Unreal Engine 5 C++ class (header + implementation) by discovering all project conventions at runtime. Nothing is hardcoded — every convention is detected from AGENTS.md, project files, or existing source code.
 
 ## Phase 1: Discovery
 
 Execute these steps in priority order. Earlier sources override later ones.
 
-### Step 1 — CLAUDE.md (highest authority)
+### Step 1 — AGENTS.md (highest authority)
 
-Walk upward from cwd looking for `CLAUDE.md`. If found, extract any of the following that are documented:
+Walk upward from cwd looking for `AGENTS.md`. If found, extract any of the following that are documented:
 
 - Module name and API macro
 - Source directory structure (e.g., `Source/<Module>/` or nested subdirectories)
@@ -23,9 +23,9 @@ Walk upward from cwd looking for `CLAUDE.md`. If found, extract any of the follo
 - Include path rules (public include paths, short-form conventions)
 - Class prefix patterns
 
-CLAUDE.md is the **highest authority** — its rules override anything observed in the codebase (the project may be transitioning to new conventions).
+AGENTS.md is the **highest authority** — its rules override anything observed in the codebase (the project may be transitioning to new conventions).
 
-### Step 2 — .uproject + .Build.cs (for anything not in CLAUDE.md)
+### Step 2 — .uproject + .Build.cs (for anything not in AGENTS.md)
 
 - Walk upward from cwd for `*.uproject`. Read the `Modules` array to get the module name(s) and `EngineAssociation` for the engine version.
 - **Plugin awareness:** If cwd is inside a directory containing a `.uplugin` file, use that plugin's module name and its `.Build.cs` instead of the game module.
@@ -65,7 +65,7 @@ Do **not** re-ask for anything already provided as arguments to the skill invoca
 
 ### Convention Priority
 
-Apply conventions in this order: **CLAUDE.md rules > Observed codebase patterns > Fallback defaults**
+Apply conventions in this order: **AGENTS.md rules > Observed codebase patterns > Fallback defaults**
 
 ### Base Class Include Mapping
 
@@ -130,7 +130,7 @@ Assemble the implementation using discovered conventions:
 
 ## Coding Conventions (Fallback Defaults)
 
-These are standard UE5 conventions used when **neither CLAUDE.md nor codebase scan** provides a project-specific rule. Discovered conventions always take priority.
+These are standard UE5 conventions used when **neither AGENTS.md nor codebase scan** provides a project-specific rule. Discovered conventions always take priority.
 
 ### Fields
 - Always private with `UPROPERTY()`
@@ -187,4 +187,3 @@ These are standard UE5 conventions used when **neither CLAUDE.md nor codebase sc
 Report what was created (file paths and class name) and remind the user to:
 1. Register the class in a Blueprint if needed
 2. Add any necessary config entries (e.g., `DefaultEngine.ini` for Data Assets)
-

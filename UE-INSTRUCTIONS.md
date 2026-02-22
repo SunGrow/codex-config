@@ -1,9 +1,9 @@
-# Unreal Engine 5 - Global Instructions (Codex Migration)
+# Unreal Engine 5 - Global Instructions
 
 ## UE5 Environment
 
-- UE engine path is project-specific. Check project docs (for example `MEMORY.md`, `CLAUDE.md`) for the exact path.
-- Migrated coding rule files are expected at `$CODEX_HOME/migrated-from-claude/agent-rules/`.
+- UE engine path is project-specific. Check project docs (for example `AGENTS.md`, `MEMORY.md`) for the exact path.
+- Legacy imported coding rule files are expected at `$CODEX_HOME/agent-rules/`.
 - If `CODEX_HOME` is not set, defaults are `%USERPROFILE%\.codex` on Windows and `~/.codex` on macOS/Linux.
 
 ## Workflow Preference
@@ -14,7 +14,7 @@ Use a lead/orchestrator mindset:
 - Review outputs against rule files before finalizing.
 - Prefer `ue-senior-dev` for full implementation pipelines.
 
-## Skill Routing (from original Claude setup)
+## Skill Routing
 
 | Task | Preferred Skill |
 |---|---|

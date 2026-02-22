@@ -17,7 +17,7 @@ tmp/
 
 # Local migration artifacts (machine-specific)
 migrations/
-migrated-from-claude/
+migrated-*/
 
 # Local machine-specific configuration
 config.toml

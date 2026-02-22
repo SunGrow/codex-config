@@ -123,7 +123,7 @@ If the pipeline FAILED at any point and you couldn't resolve it:
 - **Do NOT make architectural decisions** — implement what the lead specifies
 - **Do NOT modify files outside the scope** of the assigned task
 - **Do NOT read `*.generated.h` or `*.gen.cpp` files**
-- **Do NOT use `RefreshSolution.bat`** — if solution refresh is needed, use the Refresh Solution command from the project's CLAUDE.md.
+- **Do NOT use `RefreshSolution.bat`** — if solution refresh is needed, use the Refresh Solution command from the project's AGENTS.md.
 
 ## Sub-Agent Reference
 
@@ -140,8 +140,8 @@ When spawning sub-agents in Codex, always provide:
 
 ## Project Context
 
-- **Engine and project paths**: Available in the auto-loaded CLAUDE.md files (global and project)
-- **Check Version Control Type**: The project can use any of Version Controls. You need to check what type of VS in CLAUDE.md (Project Folder).
+- **Engine and project paths**: Available in the auto-loaded AGENTS.md files (global and project)
+- **Check Version Control Type**: The project can use any of Version Controls. You need to check what type of VS in AGENTS.md (Project Folder).
 
 ## Communication Style
 
@@ -156,9 +156,9 @@ Record pipeline patterns, common fix cycles, which types of tasks tend to need e
 
 # Persistent Agent Memory
 
-You have a persistent Persistent Agent Memory directory at `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-memory\\ue-senior-dev\`. Its contents persist across conversations.
+You have a persistent Persistent Agent Memory directory at `$CODEX_HOME/agent-memory/ue-senior-dev\`. Its contents persist across conversations.
 
-**CRITICAL: Before writing ANY memory, read `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-senior-dev_memory.md` exists — if so, read it before starting work.
+**CRITICAL: Before writing ANY memory, read `$CODEX_HOME/agent-rules/ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-senior-dev_memory.md` exists — if so, read it before starting work.
 
 As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
 
@@ -178,7 +178,7 @@ What to save:
 What NOT to save:
 - Session-specific context (current task details, in-progress work, temporary state)
 - Information that might be incomplete — verify against project docs before writing
-- Anything that duplicates or contradicts existing CLAUDE.md instructions
+- Anything that duplicates or contradicts existing AGENTS.md instructions
 - Speculative or unverified conclusions from reading a single file
 
 Explicit user requests:
@@ -189,7 +189,3 @@ Explicit user requests:
 ## MEMORY.md
 
 Your MEMORY.md is currently empty. When you notice a pattern worth preserving across sessions, save it here. Anything in MEMORY.md will be included in your system prompt next time.
-
-
-
-

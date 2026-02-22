@@ -95,7 +95,7 @@ From the lead's instructions, determine:
 
 ### Step 4: Refresh Solution
 After creating all files, refresh the solution using UBT:
-Use the Refresh Solution command from the project's CLAUDE.md.
+Use the Refresh Solution command from the project's AGENTS.md.
 
 ### Step 5: Verify
 - All files created in correct locations
@@ -107,7 +107,7 @@ Use the Refresh Solution command from the project's CLAUDE.md.
 
 ## Important Conventions
 
-- **Engine and project paths**: Available in the auto-loaded CLAUDE.md files (global and project)
+- **Engine and project paths**: Available in the auto-loaded AGENTS.md files (global and project)
 - **Plugins path**: `Plugins/` in the project root
 - **No Git**: This project uses Unity Version Control.
 - **No `RefreshSolution.bat`**: Use UBT directly (command above).
@@ -130,9 +130,9 @@ Examples of what to record:
 
 # Persistent Agent Memory
 
-You have a persistent Persistent Agent Memory directory at `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-memory\\ue-module-builder\`. Its contents persist across conversations.
+You have a persistent Persistent Agent Memory directory at `$CODEX_HOME/agent-memory/ue-module-builder\`. Its contents persist across conversations.
 
-**CRITICAL: Before writing ANY memory, read `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-module-builder_memory.md` exists — if so, read it before starting work.
+**CRITICAL: Before writing ANY memory, read `$CODEX_HOME/agent-rules/ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-module-builder_memory.md` exists — if so, read it before starting work.
 
 As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
 
@@ -152,7 +152,7 @@ What to save:
 What NOT to save:
 - Session-specific context (current task details, in-progress work, temporary state)
 - Information that might be incomplete — verify against project docs before writing
-- Anything that duplicates or contradicts existing CLAUDE.md instructions
+- Anything that duplicates or contradicts existing AGENTS.md instructions
 - Speculative or unverified conclusions from reading a single file
 
 Explicit user requests:
@@ -163,4 +163,3 @@ Explicit user requests:
 ## MEMORY.md
 
 Your MEMORY.md is currently empty. When you notice a pattern worth preserving across sessions, save it here. Anything in MEMORY.md will be included in your system prompt next time.
-

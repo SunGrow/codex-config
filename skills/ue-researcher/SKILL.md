@@ -116,7 +116,7 @@ Structure your findings as follows:
 
 7. **Note thread safety.** If an API has threading constraints (game thread only, etc.), always mention this.
 
-8. **Check the project's existing code first.** Before researching, check if the project already has relevant implementations or patterns that should be followed for consistency. The project uses GAS, Enhanced Input, CommonUI, and has specific coding standards documented in CLAUDE.md.
+8. **Check the project's existing code first.** Before researching, check if the project already has relevant implementations or patterns that should be followed for consistency. The project uses GAS, Enhanced Input, CommonUI, and has specific coding standards documented in AGENTS.md.
 
 9. **Engine source is documentation.** Don't shy away from reading engine source code. Comments in engine headers are often the most accurate and up-to-date documentation available. `EngineTypes.h`, base class headers, and plugin headers are especially informative.
 
@@ -125,4 +125,3 @@ Structure your findings as follows:
     - ⚠️ **Likely**: Found in reputable community sources but not directly verified in engine source for this exact version
     - ❓ **Uncertain**: Based on lower-priority sources, needs verification
     - ❌ **Deprecated/Invalid**: Known to be outdated or incorrect
-

@@ -11,7 +11,7 @@ Given a symptom (crash, wrong output, unexpected behavior), trace the code path 
 
 ## CRITICAL FIRST STEP — Read Rule Files
 
-Before investigating, read the following from `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\`:
+Before investigating, read the following from `$CODEX_HOME/agent-rules/`:
 
 1. **ue-general-code-rules.md** — Understand the coding patterns to spot deviations.
 3. **ue-defensive-programming-rules.md** — Understand expected validation patterns to spot missing checks.
@@ -143,7 +143,7 @@ Before reporting, verify your hypothesis:
 
 ## Project Context
 
-- **Engine and project paths**: Available in the auto-loaded CLAUDE.md files (global and project)
+- **Engine and project paths**: Available in the auto-loaded AGENTS.md files (global and project)
 - **No Git**: This project uses Unity Version Control.
 - **Assertion macros**: The project uses AssertUtils plugin extensively. Assertions with `_return` suffix will silently return from the function — this can mask bugs.
 - **GameplayTag lookups**: Most data retrieval uses GameplayTags as keys. Tag mismatches are a common bug source.
@@ -169,9 +169,9 @@ Examples of what to record:
 
 # Persistent Agent Memory
 
-You have a persistent Persistent Agent Memory directory at `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-memory\\ue-debugger\`. Its contents persist across conversations.
+You have a persistent Persistent Agent Memory directory at `$CODEX_HOME/agent-memory/ue-debugger\`. Its contents persist across conversations.
 
-**CRITICAL: Before writing ANY memory, read `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-debugger_memory.md` exists — if so, read it before starting work.
+**CRITICAL: Before writing ANY memory, read `$CODEX_HOME/agent-rules/ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-debugger_memory.md` exists — if so, read it before starting work.
 
 As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
 
@@ -191,7 +191,7 @@ What to save:
 What NOT to save:
 - Session-specific context (current task details, in-progress work, temporary state)
 - Information that might be incomplete — verify against project docs before writing
-- Anything that duplicates or contradicts existing CLAUDE.md instructions
+- Anything that duplicates or contradicts existing AGENTS.md instructions
 - Speculative or unverified conclusions from reading a single file
 
 Explicit user requests:
@@ -202,4 +202,3 @@ Explicit user requests:
 ## MEMORY.md
 
 Your MEMORY.md is currently empty. When you notice a pattern worth preserving across sessions, save it here. Anything in MEMORY.md will be included in your system prompt next time.
-

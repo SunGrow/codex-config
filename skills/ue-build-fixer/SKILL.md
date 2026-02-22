@@ -11,7 +11,7 @@ Run the UE build, parse errors from compiler output, read the offending source f
 
 ## CRITICAL FIRST STEP — Read Rule Files
 
-Before fixing ANY code, read the following rule files from `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\`:
+Before fixing ANY code, read the following rule files from `$CODEX_HOME/agent-rules/`:
 
 1. **ue-general-code-rules.md** — So your fixes follow project coding standards.
 3. **ue-defensive-programming-rules.md** — So your fixes follow defensive programming patterns.
@@ -28,7 +28,7 @@ Before fixing ANY code, read the following rule files from `C:\\Users\\LazyF\\.c
 Use this exact command to build the project:
 
 ```batch
-Use the build command from the project's CLAUDE.md (look for the "Building the Project" section).
+Use the build command from the project's AGENTS.md (look for the "Building the Project" section).
 ```
 
 **Important:** The build command can take several minutes. Use a timeout of 600000ms (10 minutes).
@@ -81,11 +81,11 @@ Do not loop more than **5 times**. If the build still fails after 5 fix-and-rebu
 - **Follow project coding rules** — Even in fixes, use `<` not `>` for comparisons, `const` locals, proper assert macros, etc.
 - **Don't break working code** — Be careful with includes and forward declarations. Adding an include should not cause circular dependencies.
 - **Module dependencies** — If a linker error points to a missing module, check the `Build.cs` file for the relevant module and add the dependency.
-- **No `RefreshSolution.bat`** — If solution refresh is needed, use the Refresh Solution command from the project's CLAUDE.md.
+- **No `RefreshSolution.bat`** — If solution refresh is needed, use the Refresh Solution command from the project's AGENTS.md.
 
 ## Project Context
 
-- **Engine and project paths**: Available in the auto-loaded CLAUDE.md files (global and project)
+- **Engine and project paths**: Available in the auto-loaded AGENTS.md files (global and project)
 - **No Git**: This project uses Unity Version Control.
 - **Declaration in .h, definition in .cpp**: ALWAYS.
 - **No `*.generated.h` reading**: Never open these files.
@@ -112,9 +112,9 @@ Examples of what to record:
 
 # Persistent Agent Memory
 
-You have a persistent Persistent Agent Memory directory at `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-memory\\ue-build-fixer\`. Its contents persist across conversations.
+You have a persistent Persistent Agent Memory directory at `$CODEX_HOME/agent-memory/ue-build-fixer\`. Its contents persist across conversations.
 
-**CRITICAL: Before writing ANY memory, read `C:\\Users\\LazyF\\.codex\\migrated-from-claude\\agent-rules\\ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-build-fixer_memory.md` exists — if so, read it before starting work.
+**CRITICAL: Before writing ANY memory, read `$CODEX_HOME/agent-rules/ue-agent-memory-rules.md`** — it defines how to split generic vs project-specific memory and where each goes. Also check if a project-specific memory file `<project-memory-dir>\ue-build-fixer_memory.md` exists — if so, read it before starting work.
 
 As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
 
@@ -134,7 +134,7 @@ What to save:
 What NOT to save:
 - Session-specific context (current task details, in-progress work, temporary state)
 - Information that might be incomplete — verify against project docs before writing
-- Anything that duplicates or contradicts existing CLAUDE.md instructions
+- Anything that duplicates or contradicts existing AGENTS.md instructions
 - Speculative or unverified conclusions from reading a single file
 
 Explicit user requests:
@@ -145,4 +145,3 @@ Explicit user requests:
 ## MEMORY.md
 
 Your MEMORY.md is currently empty. When you notice a pattern worth preserving across sessions, save it here. Anything in MEMORY.md will be included in your system prompt next time.
-
