@@ -8,6 +8,8 @@ Use this checklist for manual improvements after running the audit script.
 - `description` mentions concrete triggers (file types, task verbs, scenarios).
 - `description` avoids filler and avoids project-specific assumptions unless required.
 - `agents/openai.yaml` has a concise `short_description` (25-64 chars).
+- `agents/openai.yaml` includes `display_name` and `default_prompt`.
+- `default_prompt` references the skill token (for example `$skill-name`).
 
 ## Context Efficiency
 

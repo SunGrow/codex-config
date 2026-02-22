@@ -20,7 +20,7 @@ project_doc_max_bytes = 32768
 
 # Codex reads AGENTS.md by default.
 # Optional fallback filenames for non-standard project docs:
-# project_doc_fallback_filenames = ["RULES.md"]
+# project_doc_fallback_filenames = ["CODEX-CONFIG-INSTRUCTIONS.md"]
 
 # Stable feature flags.
 [features]

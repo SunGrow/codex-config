@@ -303,6 +303,17 @@ def audit_skill(skill_dir: Path, root: Path, apply: bool) -> SkillResult:
         )
     else:
         yaml_text = openai_yaml.read_text(encoding="utf-8")
+        display_name_match = re.search(r'^\s*display_name:\s*"(.*)"\s*$', yaml_text, flags=re.MULTILINE)
+        if not display_name_match:
+            findings.append(
+                Finding(
+                    severity="warning",
+                    check="openai-display-name-missing",
+                    path=str(openai_yaml.relative_to(root)),
+                    message='agents/openai.yaml missing "display_name".',
+                )
+            )
+
         short_desc_match = re.search(r'^\s*short_description:\s*"(.*)"\s*$', yaml_text, flags=re.MULTILINE)
         if short_desc_match:
             short_desc = short_desc_match.group(1)
@@ -325,6 +336,33 @@ def audit_skill(skill_dir: Path, root: Path, apply: bool) -> SkillResult:
                     check="openai-short-description-missing",
                     path=str(openai_yaml.relative_to(root)),
                     message='agents/openai.yaml missing "short_description".',
+                )
+            )
+
+        default_prompt_match = re.search(r'^\s*default_prompt:\s*"(.*)"\s*$', yaml_text, flags=re.MULTILINE)
+        if default_prompt_match:
+            default_prompt = default_prompt_match.group(1)
+            skill_name = fm_values.get("name", skill_dir.name).strip()
+            expected_skill_token = f"${skill_name}" if skill_name else f"${skill_dir.name}"
+            if expected_skill_token not in default_prompt:
+                findings.append(
+                    Finding(
+                        severity="warning",
+                        check="openai-default-prompt-skill-mention",
+                        path=str(openai_yaml.relative_to(root)),
+                        message=(
+                            "default_prompt should mention the skill token "
+                            f"`{expected_skill_token}`."
+                        ),
+                    )
+                )
+        else:
+            findings.append(
+                Finding(
+                    severity="warning",
+                    check="openai-default-prompt-missing",
+                    path=str(openai_yaml.relative_to(root)),
+                    message='agents/openai.yaml missing "default_prompt".',
                 )
             )
 

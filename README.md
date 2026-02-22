@@ -6,6 +6,7 @@ This repository packages shareable Codex configuration and instruction files so 
 
 - `AGENTS.md`: global instruction policy loaded by Codex.
 - `UE-INSTRUCTIONS.md`: Unreal Engine workflow guidance referenced by `AGENTS.md`.
+- `CODEX-CONFIG-INSTRUCTIONS.md`: Codex-config workflow and routing guidance referenced by `AGENTS.md`.
 - `config.template.toml`: portable starter config (copy to `config.toml` locally).
 - `skills/`: installed skills that can be invoked by name.
 - `docs/REFERENCES.md`: official docs and upstream references.
@@ -43,6 +44,7 @@ cp config.template.toml config.toml
    - call out required tools/skills by name;
    - define expected output and validation steps.
 5. For Unreal work, keep UE-specific guidance in `UE-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
+6. For Codex-config work, keep config-specific guidance in `CODEX-CONFIG-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
 
 ## Configuration model
 

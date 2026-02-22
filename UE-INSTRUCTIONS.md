@@ -1,5 +1,11 @@
 # Unreal Engine 5 - Global Instructions
 
+## Scope
+
+Apply this context only to Unreal Engine repositories (for example, repositories containing `.uproject` files or UE module/plugin structure).
+
+Outside UE scope, do not apply UE routing/skills unless the user explicitly requests them.
+
 ## UE5 Environment
 
 - UE engine path is project-specific. Check project docs (for example `AGENTS.md`, `MEMORY.md`) for the exact path.
