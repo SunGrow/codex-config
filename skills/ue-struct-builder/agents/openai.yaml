@@ -3,3 +3,6 @@ interface:
   short_description: "Create or extend UE structs with required boilerplate"
   default_prompt: "Use $ue-struct-builder to create or extend a UE struct with required operators, validation, and layout rules."
 
+policy:
+  allow_implicit_invocation: true
+

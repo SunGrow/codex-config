@@ -13,10 +13,18 @@ Outside this scope, do not apply Codex-config skills unless the user explicitly 
 
 ## Delegation-First Rule
 
+- Use hierarchical dispatch as the default for Codex-config tasks.
 - If a suitable skill-specific agent exists, dispatch that skill first.
 - Keep orchestration context compact: pass file paths, constraints, and required outputs only.
 - Prefer short, structured child outputs: changed files, validations run, blockers.
 - Fall back to direct edits only when no suitable skill exists or delegation is blocked.
+
+## Dispatch Order
+
+1. Detect scope markers and confirm this is Codex-config work.
+2. Route to the narrowest matching skill from the table below.
+3. Run validations after child outputs and before final summary.
+4. Escalate to broader skills only when narrow skills cannot complete the task.
 
 ## Skill Routing
 

@@ -3,3 +3,6 @@ interface:
   short_description: "Verify UE APIs and patterns from primary sources"
   default_prompt: "Use $ue-researcher to verify this UE API or pattern against primary sources and report confidence clearly."
 
+policy:
+  allow_implicit_invocation: true
+

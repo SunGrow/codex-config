@@ -6,6 +6,13 @@ Apply this context only to Unreal Engine repositories (for example, repositories
 
 Outside UE scope, do not apply UE routing/skills unless the user explicitly requests them.
 
+## Hierarchical Dispatch (Default)
+
+- Use skill-specific sub-agents as the default execution model for UE work.
+- Keep the parent agent focused on task decomposition, acceptance criteria, and final synthesis.
+- Dispatch read-heavy tasks in parallel when safe (research, review, log triage); coordinate write-heavy tasks to avoid edit collisions.
+- Execute directly only when no suitable UE skill exists or delegation is blocked.
+
 ## UE5 Environment
 
 - UE engine path is project-specific. Check project docs (for example `AGENTS.md`, `MEMORY.md`) for the exact path.
@@ -14,7 +21,7 @@ Outside UE scope, do not apply UE routing/skills unless the user explicitly requ
 
 ## Workflow Preference
 
-Use a lead/orchestrator mindset:
+Use an orchestrator mindset:
 - Plan the architecture and break work into tasks.
 - Select the most relevant migrated UE skill for each task.
 - Review outputs against rule files before finalizing.

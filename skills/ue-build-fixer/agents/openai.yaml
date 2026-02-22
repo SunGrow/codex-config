@@ -3,3 +3,6 @@ interface:
   short_description: "Build UE and fix compile errors iteratively"
   default_prompt: "Use $ue-build-fixer to run build-fix loops until the project compiles or a blocker remains."
 
+policy:
+  allow_implicit_invocation: true
+

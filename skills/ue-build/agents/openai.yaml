@@ -3,3 +3,6 @@ interface:
   short_description: "Build Unreal project targets safely"
   default_prompt: "Use $ue-build to build the current Unreal project and report only actionable errors."
 
+policy:
+  allow_implicit_invocation: true
+

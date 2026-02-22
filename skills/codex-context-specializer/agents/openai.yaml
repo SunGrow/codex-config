@@ -2,3 +2,7 @@ interface:
   display_name: "Codex Context Specializer"
   short_description: "Build scoped Codex project contexts"
   default_prompt: "Use $codex-context-specializer to create a project-scoped context doc, wire AGENTS routing, and validate context plus skill quality."
+
+policy:
+  allow_implicit_invocation: true
+

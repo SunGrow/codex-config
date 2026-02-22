@@ -6,6 +6,8 @@ References below were verified on 2026-02-22.
 
 - Overview: https://developers.openai.com/codex
 - Quickstart: https://developers.openai.com/codex/quickstart
+- Customization concepts: https://developers.openai.com/codex/concepts/customization
+- Multi-agents concepts: https://developers.openai.com/codex/concepts/multi-agents
 - CLI features: https://developers.openai.com/codex/cli/features#running-in-interactive-mode
 - Config basics: https://developers.openai.com/codex/config-basic
 - Advanced config: https://developers.openai.com/codex/config-advanced

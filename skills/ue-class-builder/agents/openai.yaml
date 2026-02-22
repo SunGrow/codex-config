@@ -3,3 +3,6 @@ interface:
   short_description: "Create or extend UE classes with rule-compliant scaffolding"
   default_prompt: "Use $ue-class-builder to scaffold or extend UE classes with project-compliant fields and function declarations."
 
+policy:
+  allow_implicit_invocation: true
+

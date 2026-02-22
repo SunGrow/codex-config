@@ -6,6 +6,12 @@
 - Prefer actionable constraints over long policy text.
 - Avoid duplicate or auto-generated boilerplate guidance.
 
+## Standard Layout
+
+- Use layered guidance: global `AGENTS.md` -> repo `AGENTS.md` -> nested `AGENTS.override.md` where needed.
+- Keep domain-specific policy in separate `*-INSTRUCTIONS.md` files and reference them from `AGENTS.md`.
+- Keep skills in standard skill folders with `SKILL.md` + `agents/openai.yaml`.
+
 ## Project Detection
 
 - Prefer project-local `AGENTS.md` guidance in the active repository scope.
@@ -14,9 +20,11 @@
 
 ## Delegation And Context Budget
 
+- Default to hierarchical dispatch for noisy, specialized, or repeatable tasks.
 - If a matching skill-specific agent can handle the task, dispatch it instead of doing the work directly.
 - Do work directly only when no suitable skill exists, delegation is blocked, or the user explicitly asks for direct handling.
-- Keep parent context lean: pass only required paths, constraints, and expected output; avoid loading large references unless needed.
+- Keep the parent context lean: pass only required paths, constraints, and expected output.
+- Prefer parallel sub-agents for read-heavy work; coordinate write-heavy edits carefully to avoid conflicts.
 
 ## Unreal Engine Projects
 

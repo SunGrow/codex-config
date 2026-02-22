@@ -38,13 +38,21 @@ cp config.template.toml config.toml
 
 1. Put cross-project rules in this repo's `AGENTS.md`.
 2. Put project-specific rules in a project-local `AGENTS.md`.
-3. Use `project_doc_fallback_filenames` only when a project uses a non-standard instruction filename.
-4. Keep instructions explicit:
+3. For deep subtrees, use nested `AGENTS.override.md` for local overrides.
+4. Use `project_doc_fallback_filenames` only when a project uses a non-standard instruction filename.
+5. Keep instructions explicit:
    - state the environment and constraints;
    - call out required tools/skills by name;
    - define expected output and validation steps.
-5. For Unreal work, keep UE-specific guidance in `UE-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
-6. For Codex-config work, keep config-specific guidance in `CODEX-CONFIG-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
+6. For Unreal work, keep UE-specific guidance in `UE-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
+7. For Codex-config work, keep config-specific guidance in `CODEX-CONFIG-INSTRUCTIONS.md` and reference it from `AGENTS.md`.
+8. Default to hierarchical dispatch for specialized/noisy tasks to protect parent context budget.
+
+## Standard Skills Layout
+
+- Repo-scoped standard layout: `.agents/skills/<skill-name>/SKILL.md`.
+- This repository is a global Codex home config, so skills live in `skills/` for this setup.
+- Keep every skill folder minimal: `SKILL.md`, optional `agents/openai.yaml`, optional `scripts/`, `references/`, `assets/`.
 
 ## Configuration model
 

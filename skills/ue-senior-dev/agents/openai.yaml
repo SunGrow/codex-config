@@ -3,3 +3,6 @@ interface:
   short_description: "Run UE logic-review-build implementation pipeline"
   default_prompt: "Use $ue-senior-dev to run the full UE implementation pipeline: logic, review, and build-fix cycles."
 
+policy:
+  allow_implicit_invocation: true
+
