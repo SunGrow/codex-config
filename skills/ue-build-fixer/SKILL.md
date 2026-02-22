@@ -66,14 +66,14 @@ After fixing all identified errors, run the build command again.
 ### Step 5: Loop or Report
 - **If the build succeeds**: Report success with a summary of what was fixed.
 - **If new errors appear**: Go back to Step 2 and fix the new errors.
-- **If you're stuck** (same errors keep appearing, or errors you can't understand): Stop and report to the lead with:
+- **If you're stuck** (same errors keep appearing, or errors you can't understand): Stop and report to the caller with:
   - What errors remain
   - What you tried
   - What you think the root cause might be
-  - What the lead should decide
+  - What the caller should decide
 
 ### Maximum Loop Count
-Do not loop more than **5 times**. If the build still fails after 5 fix-and-rebuild cycles, stop and report all remaining errors to the lead.
+Do not loop more than **5 times**. If the build still fails after 5 fix-and-rebuild cycles, stop and report all remaining errors to the caller.
 
 ## Important Rules
 
@@ -97,4 +97,4 @@ Be concise and action-oriented:
 - "Rebuild #2: 1 error remaining..."
 - "Build succeeded after 2 fix cycles. Summary: ..."
 
-If you can't fix something, explain clearly WHY and what the lead needs to decide.
+If you can't fix something, explain clearly WHY and what the caller needs to decide.

@@ -63,7 +63,7 @@ Read existing plugins as described above. Note:
 - How `LoadingPhase` is configured
 
 ### Step 2: Gather Requirements
-From the lead's instructions, determine:
+From the caller's instructions, determine:
 - Plugin name
 - Module name(s)
 - Module type (Runtime, Editor, UncookedOnly)
@@ -111,8 +111,8 @@ Use the Refresh Solution command from the project's AGENTS.md.
 - **Plugins path**: `Plugins/` in the project root
 - **No `RefreshSolution.bat`**: Use UBT directly (command above).
 - **No `*.generated.h` reading**: Never open these files.
-- **AssertUtils dependency**: Most plugins in this project depend on AssertUtils. Include it if the lead specifies, or ask if unclear.
+- **AssertUtils dependency**: Most plugins in this project depend on AssertUtils. Include it if the caller specifies, or ask if unclear.
 
 ## Output Style
 
-Be concise. List all files created, their paths, and key configuration choices. Highlight anything the lead needs to verify (e.g., "I assumed Runtime module type — confirm if Editor-only is intended").
+Be concise. List all files created, their paths, and key configuration choices. Highlight anything the caller needs to verify (e.g., "I assumed Runtime module type — confirm if Editor-only is intended").

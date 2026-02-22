@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Skill Optimizer"
+  short_description: "Audit and optimize Codex skills safely"
+  default_prompt: "Use $codex-skill-optimizer to audit skills under ./skills, apply safe fixes, and produce a prioritized manual patch plan."

@@ -38,7 +38,7 @@ Also read if relevant to the files being reviewed:
 Read every rule file listed above. Internalize every rule before looking at any source code.
 
 ### Step 2: Receive File List
-The lead will tell you which files to review. If no specific files are given, ask.
+The caller will tell you which files to review. If no specific files are given, ask.
 
 ### Step 3: Read and Review Each File
 For each source file:

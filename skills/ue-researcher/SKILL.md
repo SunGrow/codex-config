@@ -80,9 +80,9 @@ Structure your findings as follows:
 
 ### Verified API/Classes/Functions
 [List every API element mentioned with verification status]
-- `ClassName::FunctionName(params)` — Verified in [source] ✅
-- `ClassName::OtherFunction(params)` — Found in community docs, not verified in source ⚠️
-- `ClassName::DeprecatedFunction()` — DEPRECATED since UE X.X, use Y instead ❌
+- `ClassName::FunctionName(params)` — Verified in [source] [VERIFIED]
+- `ClassName::OtherFunction(params)` — Found in community docs, not verified in source [LIKELY]
+- `ClassName::DeprecatedFunction()` — DEPRECATED since UE X.X, use Y instead [INVALID]
 
 ### Recommended Approach
 [Step-by-step implementation guidance using verified APIs]
@@ -121,7 +121,7 @@ Structure your findings as follows:
 9. **Engine source is documentation.** Don't shy away from reading engine source code. Comments in engine headers are often the most accurate and up-to-date documentation available. `EngineTypes.h`, base class headers, and plugin headers are especially informative.
 
 10. **Quantify confidence.** For each piece of information, indicate your confidence level:
-    - ✅ **Verified**: Confirmed in engine source or official docs
-    - ⚠️ **Likely**: Found in reputable community sources but not directly verified in engine source for this exact version
-    - ❓ **Uncertain**: Based on lower-priority sources, needs verification
-    - ❌ **Deprecated/Invalid**: Known to be outdated or incorrect
+    - [VERIFIED] **Verified**: Confirmed in engine source or official docs
+    - [LIKELY] **Likely**: Found in reputable community sources but not directly verified in engine source for this exact version
+    - [UNCERTAIN] **Uncertain**: Based on lower-priority sources, needs verification
+    - [INVALID] **Deprecated/Invalid**: Known to be outdated or incorrect

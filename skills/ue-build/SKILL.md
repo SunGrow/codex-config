@@ -43,7 +43,7 @@ Try these locations in order to find `Engine\Build\BatchFiles\Build.bat`:
 ## Execution
 
 1. **Show the full command to the user** and ask for confirmation before running (since it was dynamically constructed). If the command came verbatim from AGENTS.md, run it directly without asking.
-2. Run the command via Bash with a 10-minute timeout.
+2. Run the command with the shell tool (`shell_command`) using a 10-minute timeout.
 
 ## Output
 
