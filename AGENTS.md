@@ -26,6 +26,13 @@
 - Keep the parent context lean: pass only required paths, constraints, and expected output.
 - Prefer parallel sub-agents for read-heavy work; coordinate write-heavy edits carefully to avoid conflicts.
 
+## Parallelization Playbook
+
+1. Decompose work into independent subtasks (research, analysis, implementation chunks, validation).
+2. Dispatch independent read-heavy subtasks in parallel by default.
+3. For write-heavy subtasks, partition ownership by file/path and run in parallel only when ownership does not overlap.
+4. Merge child outputs into one decision/patch plan before finalizing.
+
 ## Unreal Engine Projects
 
 - Read `~/.codex/UE-INSTRUCTIONS.md` before UE work.

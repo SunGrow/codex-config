@@ -83,6 +83,13 @@ Outside this scope, do not apply these routing rules unless explicitly requested
 - Keep parent context minimal: pass only required files, constraints, and expected output.
 - Fall back to direct execution only when delegation is blocked or no suitable skill exists.
 
+## Parallelization Playbook
+
+1. Decompose work into independent subtasks.
+2. Run read-heavy subtasks in parallel by default.
+3. Partition write-heavy subtasks by non-overlapping file ownership.
+4. Complete one integration and validation pass before final output.
+
 ## Skill Routing
 
 {route_block}

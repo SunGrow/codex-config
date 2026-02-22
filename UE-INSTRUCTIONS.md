@@ -13,6 +13,13 @@ Outside UE scope, do not apply UE routing/skills unless the user explicitly requ
 - Dispatch read-heavy tasks in parallel when safe (research, review, log triage); coordinate write-heavy tasks to avoid edit collisions.
 - Execute directly only when no suitable UE skill exists or delegation is blocked.
 
+## UE Parallelization Playbook
+
+1. Split by subsystem first (UI, gameplay, data assets, build/debug).
+2. Run independent research/review tasks in parallel (`ue-researcher`, `ue-code-reviewer`).
+3. Assign non-overlapping file ownership for parallel implementation tasks.
+4. Rejoin at integration points, then run one final review/build pass (`ue-code-reviewer`, `ue-build-fixer`).
+
 ## UE5 Environment
 
 - UE engine path is project-specific. Check project docs (for example `AGENTS.md`, `MEMORY.md`) for the exact path.

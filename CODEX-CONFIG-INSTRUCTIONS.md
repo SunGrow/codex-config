@@ -26,6 +26,13 @@ Outside this scope, do not apply Codex-config skills unless the user explicitly 
 3. Run validations after child outputs and before final summary.
 4. Escalate to broader skills only when narrow skills cannot complete the task.
 
+## Parallelization Playbook
+
+1. Parallelize discovery/audit tasks across independent skill folders.
+2. Parallelize metadata generation/checking where output files do not overlap.
+3. Serialize shared-file edits (`AGENTS.md`, root docs, shared scripts) to avoid conflicts.
+4. Finish with one consolidated validation pass and one final summary.
+
 ## Skill Routing
 
 | Task | Preferred Skill |

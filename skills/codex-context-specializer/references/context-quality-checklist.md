@@ -14,6 +14,12 @@ Use this checklist after adding or editing a `*-INSTRUCTIONS.md` context.
 - Parent/orchestrator context is kept minimal.
 - Fallback conditions for direct execution are explicit.
 
+## Parallelization
+
+- Parallelization policy is explicit for independent subtasks.
+- Write-heavy work has ownership boundaries to prevent edit collisions.
+- Integration/validation pass is defined after parallel work.
+
 ## Skill Routing
 
 - Routing table maps real tasks to existing skills.

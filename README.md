@@ -54,6 +54,13 @@ cp config.template.toml config.toml
 - This repository is a global Codex home config, so skills live in `skills/` for this setup.
 - Keep every skill folder minimal: `SKILL.md`, optional `agents/openai.yaml`, optional `scripts/`, `references/`, `assets/`.
 
+## Getting Depth Plus Parallelism
+
+1. Request decomposition first (subtasks + owners + outputs).
+2. Require parallel execution for independent subtasks.
+3. Require ownership partitioning for write-heavy subtasks.
+4. Require one integration pass with validation and concise findings.
+
 ## Configuration model
 
 - Keep portable defaults in `config.template.toml`.

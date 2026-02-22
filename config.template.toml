@@ -46,6 +46,7 @@ web_search = "live"
 # [windows]
 # sandbox = "elevated"
 
-# Optional multi-agent depth override.
-# [agents]
-# max_depth = 6
+# Recommended baseline for deeper hierarchical and parallel orchestration.
+[agents]
+max_depth = 8
+max_threads = 8
