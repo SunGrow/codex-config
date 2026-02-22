@@ -25,3 +25,15 @@ config.local.toml
 
 # Optional local notes
 *.local.md
+
+# Secrets and key material
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
