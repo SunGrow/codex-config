@@ -58,31 +58,34 @@ Always read the relevant rule files FIRST. Do not skip this step. Do not rely on
 3. **BindWidget fields** for all UI elements:
    ```cpp
    UPROPERTY(meta = (BindWidget))
-   TObjectPtr<UButton> Btn_Submit;
+   TObjectPtr<UButton> SubmitButton;
 
    UPROPERTY(meta = (BindWidget))
-   TObjectPtr<UTextBlock> Txt_Title;
+   TObjectPtr<UTextBlock> TitleText;
 
    UPROPERTY(meta = (BindWidget))
-   TObjectPtr<UScrollBox> ScrollBox_Items;
+   TObjectPtr<UScrollBox> ItemsScrollBox;
 
    UPROPERTY(meta = (BindWidget))
-   TObjectPtr<UOverlay> Overlay_Content;
+   TObjectPtr<UOverlay> ContentOverlay;
    ```
 
 4. **Naming conventions for BindWidget fields**:
-   | Widget Type | Prefix | Example |
-   |-------------|--------|---------|
-   | UButton | `Btn_` | `Btn_Submit`, `Btn_Close` |
-   | UTextBlock | `Txt_` | `Txt_Title`, `Txt_Description` |
-   | UScrollBox | `ScrollBox_` | `ScrollBox_Items` |
-   | UOverlay | `Overlay_` | `Overlay_Content` |
-   | UImage | `Img_` | `Img_Icon` |
-   | UProgressBar | `ProgressBar_` | `ProgressBar_Health` |
-   | UEditableTextBox | `TextBox_` | `TextBox_Input` |
-   | UVerticalBox | `VBox_` | `VBox_Container` |
-   | UHorizontalBox | `HBox_` | `HBox_Row` |
-   | UWidgetSwitcher | `Switcher_` | `Switcher_Pages` |
+   | Widget Type | Default Pattern | Example |
+   |-------------|-----------------|---------|
+   | UButton | `<Name>Button` | `SubmitButton`, `CloseButton` |
+   | UTextBlock | `<Name>Text` | `TitleText`, `DescriptionText` |
+   | UScrollBox | `<Name>ScrollBox` | `ItemsScrollBox` |
+   | UOverlay | `<Name>Overlay` | `ContentOverlay` |
+   | UImage | `<Name>Image` | `IconImage` |
+   | UProgressBar | `<Name>ProgressBar` | `HealthProgressBar` |
+   | UEditableTextBox | `<Name>TextBox` | `InputTextBox` |
+   | UVerticalBox | `<Name>VerticalBox` | `ContainerVerticalBox` |
+   | UHorizontalBox | `<Name>HorizontalBox` | `RowHorizontalBox` |
+   | UWidgetSwitcher | `<Name>WidgetSwitcher` | `PagesWidgetSwitcher` |
+
+   Use suffix-based naming as the default for all BindWidget field types.
+   If project rule files or project-local AGENTS docs specify a different convention, follow project rules.
 
 5. Create the `.cpp` file with implementations
 
