@@ -1,6 +1,6 @@
 ---
 name: ue-build
-description: Build the current Unreal Engine project (Development Editor, Win64)
+description: "Build the current Unreal Engine project (Development Editor, Win64)."
 ---
 
 # Build UE Project

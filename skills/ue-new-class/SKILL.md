@@ -1,6 +1,6 @@
 ---
 name: ue-new-class
-description: Scaffold a new UE5 C++ class following discovered project conventions
+description: "Scaffold a UE5 C++ class by discovering project conventions from AGENTS.md and existing code."
 ---
 
 # Scaffold UE5 C++ Class
