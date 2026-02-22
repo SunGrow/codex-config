@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Debugger"
+  short_description: "Trace UE runtime bugs to root cause and fixes"
+  default_prompt: "Use $ue-debugger to trace this runtime issue to root cause and return a concrete fix plan or patch."
+

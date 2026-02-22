@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Build Fixer"
+  short_description: "Build UE and fix compile errors iteratively"
+  default_prompt: "Use $ue-build-fixer to run build-fix loops until the project compiles or a blocker remains."
+

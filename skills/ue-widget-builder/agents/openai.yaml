@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Widget Builder"
+  short_description: "Create UE widgets or elements with binding rules"
+  default_prompt: "Use $ue-widget-builder to scaffold a UE widget or element using project binding and architecture rules."
+

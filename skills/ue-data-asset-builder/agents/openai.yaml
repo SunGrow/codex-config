@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Data Asset Builder"
+  short_description: "Create or extend UE DataAssets with field/getter rules"
+  default_prompt: "Use $ue-data-asset-builder to create or extend DataAsset classes with compliant field and getter patterns."
+

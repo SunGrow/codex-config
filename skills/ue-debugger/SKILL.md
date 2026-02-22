@@ -14,8 +14,8 @@ Given a symptom (crash, wrong output, unexpected behavior), trace the code path 
 Before investigating, read the following from `$CODEX_HOME/agent-rules/`:
 
 1. **ue-general-code-rules.md** — Understand the coding patterns to spot deviations.
-3. **ue-defensive-programming-rules.md** — Understand expected validation patterns to spot missing checks.
-4. **ue-assert-macros.md** — Understand assertion macros to interpret assert failures.
+2. **ue-defensive-programming-rules.md** — Understand expected validation patterns to spot missing checks.
+3. **ue-assert-macros.md** — Understand assertion macros to interpret assert failures.
 
 ## CRITICAL — Never Read Generated Files
 

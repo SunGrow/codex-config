@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Research Director"
+  short_description: "Coordinate parallel UE research into one recommendation"
+  default_prompt: "Use $ue-research-director to break this UE research question into focused sub-tasks and return one consolidated brief."
+

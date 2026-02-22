@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Logic Writer"
+  short_description: "Implement UE C++ logic with project rule files"
+  default_prompt: "Use $ue-logic-writer to implement function logic in the listed UE files while following rule docs exactly."
+

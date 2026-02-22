@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Module Builder"
+  short_description: "Create UE plugins or modules with correct boilerplate"
+  default_prompt: "Use $ue-module-builder to scaffold the requested plugin or module and align files with project conventions."
+

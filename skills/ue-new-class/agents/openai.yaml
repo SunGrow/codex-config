@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE New Class"
+  short_description: "Scaffold new UE classes from discovered conventions"
+  default_prompt: "Use $ue-new-class to scaffold a new UE class by discovering and following project conventions."
+

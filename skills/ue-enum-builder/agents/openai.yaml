@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Enum Builder"
+  short_description: "Create UE enums and optional support libraries"
+  default_prompt: "Use $ue-enum-builder to add a UE enum and optional support library using project rule conventions."
+

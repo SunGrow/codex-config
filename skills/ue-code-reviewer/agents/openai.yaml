@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Code Reviewer"
+  short_description: "Review UE C++ files against project rule docs"
+  default_prompt: "Use $ue-code-reviewer to review the specified UE C++ files and report findings first with file and line references."
+

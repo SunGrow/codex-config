@@ -1,0 +1,5 @@
+interface:
+  display_name: "UE Researcher"
+  short_description: "Verify UE APIs and patterns from primary sources"
+  default_prompt: "Use $ue-researcher to verify this UE API or pattern against primary sources and report confidence clearly."
+
