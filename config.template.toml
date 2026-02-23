@@ -1,13 +1,27 @@
 # Shareable Codex configuration template.
 # Copy this file to config.toml and keep machine-specific values local.
 
+# LLM model to use for Codex interactions.
 model = "gpt-5.3-codex"
+
+# Reasoning depth: minimal | low | medium | high | xhigh
+# Higher = better quality for complex tasks but slower and more tokens.
 model_reasoning_effort = "high"
+
+# Reasoning summary verbosity: auto | concise | detailed | none
+# "concise" reduces context consumption from reasoning traces.
+model_reasoning_summary = "concise"
+
+# Output detail level: low | medium | high
 model_verbosity = "low"
+
+# Reasoning effort used specifically in plan mode.
 plan_mode_reasoning_effort = "high"
+
+# Allow live web search during sessions.
 web_search = "live"
 
-# Keep loaded project docs concise to avoid prompt bloat.
+# Maximum bytes loaded from project doc files (AGENTS.md etc.).
 project_doc_max_bytes = 32768
 
 # Optional notifications (uncomment one block for your OS).
@@ -28,30 +42,47 @@ project_doc_max_bytes = 32768
 shell_snapshot = false
 multi_agent = true
 apps = true
+# Allow child agents to read AGENTS.md and nested overrides.
+child_agents_md = true
 
 # Non-Windows shells can opt in to shell snapshots via this profile.
 [profiles.posix.features]
 shell_snapshot = true
 
-# Optional profile optimized for read-only research and analysis.
+# Profile for read-only research and analysis passes.
 [profiles.research]
 approval_policy = "never"
 sandbox_mode = "read-only"
 model_reasoning_effort = "xhigh"
+model_reasoning_summary = "detailed"
 model_verbosity = "low"
 web_search = "live"
 
-# Add trusted projects locally.
+# Profile for complex implementation requiring deep reasoning.
+[profiles.deep]
+model_reasoning_effort = "xhigh"
+model_reasoning_summary = "detailed"
+
+# Add trusted projects locally (machine-specific).
 # [projects.'C:\\path\\to\\project']
 # trust_level = "trusted"
 # [projects.'/home/user/project']
 # trust_level = "trusted"
 
-# Optional platform-specific override.
+# Platform-specific sandbox override.
 # [windows]
+# # Elevated sandbox allows UE build tools and VS compiler access.
 # sandbox = "elevated"
 
-# Recommended baseline for deeper hierarchical and parallel orchestration.
+# Maximum agent nesting depth and parallel thread count.
 [agents]
 max_depth = 8
 max_threads = 8
+
+# Terminal UI theme.
+# [tui]
+# theme = "catppuccin-mocha"
+
+# Session transcript persistence: save-all | save-none
+# [history]
+# persistence = "save-all"
