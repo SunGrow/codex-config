@@ -24,9 +24,14 @@ project_doc_max_bytes = 32768
 
 # Stable feature flags.
 [features]
-shell_snapshot = true
+# PowerShell on Windows does not support shell snapshots.
+shell_snapshot = false
 multi_agent = true
 apps = true
+
+# Non-Windows shells can opt in to shell snapshots via this profile.
+[profiles.posix.features]
+shell_snapshot = true
 
 # Optional profile optimized for read-only research and analysis.
 [profiles.research]
