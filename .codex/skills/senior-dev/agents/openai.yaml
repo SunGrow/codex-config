@@ -1,0 +1,7 @@
+interface:
+  display_name: "Senior Dev"
+  short_description: "Run a general implementation pipeline with review and validation"
+  default_prompt: "Use $senior-dev to handle this non-UE implementation end-to-end with child agents, review, and validation."
+
+policy:
+  allow_implicit_invocation: true

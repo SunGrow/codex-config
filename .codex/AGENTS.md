@@ -1,0 +1,116 @@
+# Global Agent Standards
+
+## Instruction Style
+
+- Keep instructions concise, direct, and durable.
+- Prefer actionable constraints over long policy text.
+- Avoid duplicate or auto-generated boilerplate guidance.
+
+## Standard Layout
+
+- Use layered guidance: global `AGENTS.md` -> repo `AGENTS.md` -> nested `AGENTS.override.md` where needed.
+- Keep domain-specific policy in separate `*-INSTRUCTIONS.md` files and reference them from `AGENTS.md`.
+- Keep skills in standard skill folders with `SKILL.md` + `agents/openai.yaml`.
+
+## Project Detection
+
+- Prefer project-local `AGENTS.md` guidance in the active repository scope.
+- If a project uses a non-standard instruction filename, configure `project_doc_fallback_filenames` locally in `config.toml`.
+- If no project instructions are present, infer project type from repository markers (for example, `.uproject` for Unreal Engine, `config.toml` + `skills/` for Codex config projects).
+
+## General Software Projects
+
+- Read `~/.codex/AGENTIC-WORKFLOW-INSTRUCTIONS.md` for generic multi-agent routing, orchestration, and implementation patterns.
+- Read `~/.codex/RESEARCH-INSTRUCTIONS.md` for generic research, API verification, and mixed-domain sourcing rules.
+- Prefer the generic skills that match the task:
+  `researcher`, `research-director`, `code-architect`, `code-reviewer`, `senior-dev`.
+- Use direct handling only when the task is genuinely smaller and simpler than the orchestration overhead.
+
+## Delegation And Context Budget
+
+- Default to hierarchical dispatch for noisy, specialized, or repeatable tasks.
+- If a matching skill-specific agent can handle the task, dispatch it instead of doing the work directly.
+- Do work directly only when no suitable skill exists, delegation is blocked, or the user explicitly asks for direct handling.
+- Keep the parent context lean: pass only required paths, constraints, and expected output.
+- Prefer parallel sub-agents for read-heavy work; coordinate write-heavy edits carefully to avoid conflicts.
+
+## Parallelization Playbook
+
+1. Decompose work into independent subtasks (research, analysis, implementation chunks, validation).
+2. Dispatch independent read-heavy subtasks in parallel by default.
+3. For write-heavy subtasks, partition ownership by file/path and run in parallel only when ownership does not overlap.
+4. Merge child outputs into one decision/patch plan before finalizing.
+
+## User Decision Handoff
+
+- Sub-agents (including sub-sub agents) must not ask the user directly for yes/no decisions.
+- Leaf agents must escalate unresolved user decisions to their caller in a structured handoff.
+- Caller/orchestrator owns all user interaction and sends resolved decisions back down.
+- If a decision is blocking, caller should respond to the child with a concrete result before continuing execution.
+
+Use this handoff format:
+
+`DECISION_REQUIRED`
+- `id`: stable identifier
+- `question`: exact yes/no or multi-choice question
+- `options`: explicit options
+- `recommended`: preferred option with rationale
+
+Caller response format:
+
+`DECISION_RESULT`
+- `id`: same identifier
+- `answer`: selected option
+- `constraints`: any extra limits or notes
+
+## Tool Permission Handoff
+
+- Leaf agents must not request user tool approvals directly.
+- Leaf agents must not send privileged tool calls with escalation flags on their own.
+- Leaf agents must escalate permission needs to caller using `PERMISSION_REQUIRED`.
+- Caller owns approval prompts and privileged execution, then returns `PERMISSION_RESULT`.
+- Nested agents may run without a user approval channel even when caller can prompt. Design for caller-mediated approvals by default.
+- If runtime policy disallows approvals (for example approval mode is non-interactive), caller must return a denied result and require a non-privileged fallback path.
+
+Use this handoff format:
+
+`PERMISSION_REQUIRED`
+- `id`: stable identifier
+- `command`: exact command that requires privileged execution
+- `justification`: one yes/no approval question for the user
+- `expected_effect`: concrete output or side effect
+
+Caller response format:
+
+`PERMISSION_RESULT`
+- `id`: same identifier
+- `approved`: `yes` or `no`
+- `status`: `executed`, `denied`, or `unavailable`
+- `notes`: outputs, constraints, or required fallback
+
+## Unreal Engine Projects
+
+- Read `~/.codex/UE-INSTRUCTIONS.md` before UE work.
+- Read `~/.codex/RESEARCH-INSTRUCTIONS.md` alongside UE research tasks when source verification matters.
+- Use matching UE skills from `~/.codex/skills/`.
+- Run `ue-researcher` first for non-trivial UE implementation; use `ue-research-director` for broad research.
+- Prefer specialized UE builders/fixers when relevant:
+  `ue-class-builder`, `ue-struct-builder`, `ue-data-asset-builder`, `ue-widget-builder`, `ue-enum-builder`, `ue-module-builder`, `ue-logic-writer`, `ue-build-fixer`, `ue-code-reviewer`, `ue-senior-dev`, `ue-debugger`.
+
+## Codex Configuration Projects
+
+- Read `~/.codex/CODEX-CONFIG-INSTRUCTIONS.md` before Codex config work.
+- Treat work as Codex config scoped when repository markers include `config.toml` or `config.template.toml` plus a `skills/` directory.
+- Use Codex-config skills only for Codex config scoped work unless the user explicitly asks otherwise.
+- Prefer specialized Codex-config skills when relevant:
+  `codex-skill-optimizer`, `codex-context-specializer`, `skill-creator`, `skill-installer`.
+
+## Research And Analysis Quality
+
+- Verify unstable facts (APIs, versions, release behavior) against primary sources.
+- Prefer official documentation and upstream repositories over third-party summaries.
+- Include concrete source links and exact version/date context when relevant.
+
+## Other Projects
+
+- No additional global rules.

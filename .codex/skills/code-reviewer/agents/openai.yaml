@@ -1,0 +1,7 @@
+interface:
+  display_name: "Code Reviewer"
+  short_description: "Find bugs, regressions, and missing validation in code changes"
+  default_prompt: "Use $code-reviewer to review this change with findings-first output and file references."
+
+policy:
+  allow_implicit_invocation: true

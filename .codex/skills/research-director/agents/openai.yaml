@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Director"
+  short_description: "Fan out research questions and synthesize one verified brief"
+  default_prompt: "Use $research-director to break this research problem into child tasks and return one consolidated brief."
+
+policy:
+  allow_implicit_invocation: true

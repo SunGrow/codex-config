@@ -1,0 +1,7 @@
+interface:
+  display_name: "Researcher"
+  short_description: "Verify technical APIs and patterns from primary sources"
+  default_prompt: "Use $researcher to verify this technical question against project context and primary sources."
+
+policy:
+  allow_implicit_invocation: true
